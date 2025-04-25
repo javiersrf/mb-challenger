@@ -10,8 +10,5 @@ class Settings(BaseSettings):
     DATABASE_URL: str
     MB_URL: str
 
-    class Config:
-        env_file = ".env"
-
 
 settings = Settings()
