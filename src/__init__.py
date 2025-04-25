@@ -1,9 +1,3 @@
-from fastapi import FastAPI
+from src.apps import app
 
-
-
-app = FastAPI(
-    title="Mercado Bitcoin Challenge",
-    description="API for Mercado Bitcoin Challenge",
-    version="0.1.0",
-)
+__all__ = ["app"]
