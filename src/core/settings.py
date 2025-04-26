@@ -7,8 +7,8 @@ class Settings(BaseSettings):
         env_file_encoding="utf-8",
     )
 
-    DATABASE_URL: str
-    MB_URL: str
+    DATABASE_URL: str = "postgresql://postgres:postgres@localhost:5432/postgres"
+    MB_URL: str = "http://localhost:8001"
 
 
 settings = Settings()

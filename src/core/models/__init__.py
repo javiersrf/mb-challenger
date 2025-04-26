@@ -1,9 +1,3 @@
-from fastapi import FastAPI
+from src.core.models.mms import MMsModel
 
-
-
-app = FastAPI(
-    title="Mercado Bitcoin Challenge",
-    description="API for Mercado Bitcoin Challenge",
-    version="0.1.0",
-)
+__all__ = ["MMsModel"]

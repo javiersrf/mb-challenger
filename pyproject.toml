@@ -5,9 +5,12 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "alembic>=1.15.2",
     "fastapi>=0.115.12",
+    "httpretty>=1.1.4",
     "httpx>=0.28.1",
     "psycopg>=3.2.6",
+    "psycopg2-binary>=2.9.10",
     "pydantic-settings>=2.9.1",
     "pytest>=8.3.5",
     "ruff>=0.11.7",
@@ -15,3 +18,14 @@ dependencies = [
     "testcontainers[postgres]>=4.10.0",
     "uvicorn>=0.34.2",
 ]
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = [
+    "tests",
+]
+
+
+[tool.ruff]
+exclude = ["alembic"]
