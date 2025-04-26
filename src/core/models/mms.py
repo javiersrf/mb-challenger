@@ -1,5 +1,4 @@
 from sqlmodel import Field
-from datetime import datetime
 from sqlmodel import SQLModel
 
 

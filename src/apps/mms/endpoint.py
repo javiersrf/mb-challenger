@@ -1,18 +1,21 @@
 from fastapi import APIRouter, Depends, Query
 from .services import MMSService
-from datetime import datetime
+from src.core.utils import PairEnum, RangeEnum
+
 router = APIRouter(
-    prefix="/",
     tags=["mms"],
 )
 
 
 @router.get("/{pair}/mms")
 async def get_mms(
-    pair: str,
-    _from: datetime = Query(..., alias="from"),
-    _to: datetime = Query(None, alias="to"),
+    pair: PairEnum,
+    _from: float = Query(..., alias="from", description="Timestamp in seconds"),
+    _to: float = Query(None, alias="to", description="Timestamp in seconds"),
+    _range: RangeEnum = Query(RangeEnum.TWENTY, alias="range"),
     mms_service: MMSService = Depends(),
 ):
-    result = mms_service.get_mms(pair) 
+    result = mms_service.get_mms(
+        pair=pair.value, _from=_from, _to=_to, _range=_range.value
+    )
     return result

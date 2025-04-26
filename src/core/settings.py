@@ -1,9 +1,10 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
+import sys
 
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
-        env_file=".env",
+        env_file=".env.test" if "pytest" in sys.argv else ".env",
         env_file_encoding="utf-8",
     )
 

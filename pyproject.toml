@@ -7,6 +7,7 @@ requires-python = ">=3.12"
 dependencies = [
     "alembic>=1.15.2",
     "fastapi>=0.115.12",
+    "freezegun>=1.5.1",
     "httpretty>=1.1.4",
     "httpx>=0.28.1",
     "psycopg>=3.2.6",
@@ -26,6 +27,9 @@ testpaths = [
     "tests",
 ]
 
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
 
 [tool.ruff]
 exclude = ["alembic"]
