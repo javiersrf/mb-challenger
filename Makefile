@@ -14,4 +14,4 @@ run:
 
 
 migrate:
-	uv run alembic upgrade HEAD
+	uv run alembic upgrade head

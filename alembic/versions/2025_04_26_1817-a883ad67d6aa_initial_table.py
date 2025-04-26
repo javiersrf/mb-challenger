@@ -1,8 +1,8 @@
-"""Added initial tables
+"""Initial table
 
-Revision ID: 0b26a46e0c27
+Revision ID: a883ad67d6aa
 Revises: 
-Create Date: 2025-04-26 10:27:21.382413
+Create Date: 2025-04-26 18:17:16.475153
 
 """
 import sqlmodel
@@ -13,7 +13,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = '0b26a46e0c27'
+revision: str = 'a883ad67d6aa'
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -25,10 +25,10 @@ def upgrade() -> None:
     op.create_table('mms',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('pair', sqlmodel.sql.sqltypes.AutoString(), nullable=False),
-    sa.Column('timestamp', sa.DateTime(), nullable=False),
-    sa.Column('mms_20', sa.Float(), nullable=False),
-    sa.Column('mms_50', sa.Float(), nullable=False),
-    sa.Column('mms_200', sa.Float(), nullable=False),
+    sa.Column('timestamp', sa.Integer(), nullable=False),
+    sa.Column('mms_20', sa.Float(), nullable=True),
+    sa.Column('mms_50', sa.Float(), nullable=True),
+    sa.Column('mms_200', sa.Float(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_index(op.f('ix_mms_pair'), 'mms', ['pair'], unique=False)

@@ -8,7 +8,7 @@ class MMsModel(SQLModel, table=True):
     id: int = Field(default=None, primary_key=True)
 
     pair: str = Field(index=True)
-    timestamp: datetime = Field(index=True)
-    mms_20: float = Field(nullable=False)
-    mms_50: float = Field(nullable=False)
-    mms_200: float = Field(nullable=False)
+    timestamp: int = Field(index=True)
+    mms_20: float = Field(nullable=True)
+    mms_50: float = Field(nullable=True)
+    mms_200: float = Field(nullable=True)
