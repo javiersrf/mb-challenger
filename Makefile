@@ -15,3 +15,8 @@ run:
 
 migrate:
 	uv run alembic upgrade head
+
+
+build:
+	uv export --format requirements.txt > requirements.txt
+	docker build -t mb-api .
