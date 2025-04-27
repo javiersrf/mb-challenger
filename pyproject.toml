@@ -31,5 +31,10 @@ testpaths = [
 requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
+[dependency-groups]
+dev = [
+    "factory-boy>=3.3.3",
+]
+
 [tool.ruff]
 exclude = ["alembic"]

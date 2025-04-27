@@ -8,9 +8,9 @@ class MMsRepo:
     def __init__(self, db: Session = Depends(get_db)):
         self.db = db
 
-    def list_filter(self, pair: str, _from: int, _to: int):
+    def list_filter(self, pair: str, _from: int, _to: int, _range: int = 20):
         query = (
-            self.db.query(MMsModel.timestamp, MMsModel.mms_20)
+            self.db.query(MMsModel)
             .filter(MMsModel.pair == pair)
             .filter(_from <= MMsModel.timestamp, _to >= MMsModel.timestamp)
         )

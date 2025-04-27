@@ -7,6 +7,7 @@ from testcontainers.postgres import PostgresContainer
 from src import app
 from src.core.database import get_db
 from sqlmodel import SQLModel
+from tests.factory.mms import MMsModelFactory
 
 
 @pytest.fixture
@@ -63,3 +64,9 @@ def client(db_session):
     with TestClient(app) as test_client:
         yield test_client
     app.dependency_overrides.clear()
+
+
+@pytest.fixture(autouse=True)
+def set_session(db_session):
+    for my_factory in [MMsModelFactory]:
+        my_factory._meta.sqlalchemy_session = db_session

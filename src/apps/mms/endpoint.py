@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, Query
-from .services import MMSService
+from .services import MMSService, MMSResponse
 from src.core.utils import PairEnum, RangeEnum
 
 router = APIRouter(
@@ -7,7 +7,7 @@ router = APIRouter(
 )
 
 
-@router.get("/{pair}/mms")
+@router.get("/{pair}/mms", response_model=list[MMSResponse])
 async def get_mms(
     pair: PairEnum,
     _from: float = Query(..., alias="from", description="Timestamp in seconds"),
