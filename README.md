@@ -34,7 +34,7 @@ A **FastAPI** service for calculating and serving moving averages (MMS) of crypt
    ```
 
 2. **Set Up dependencies**:
-   (Install uv dependency manager)[https://docs.astral.sh/uv/getting-started/installation/]
+   [Install uv dependency manager](https://docs.astral.sh/uv/getting-started/installation/)
    or
    ```bash
    curl -LsSf https://astral.sh/uv/install.sh | sh
