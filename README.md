@@ -19,9 +19,9 @@ A **FastAPI** service for calculating and serving moving averages (MMS) of crypt
 ## 🛠️ Getting Started
 
 ### Prerequisites
-- **Python**: Version 3.9 or higher
+- **Python**: Version 3.12 or higher
 - **Docker**: For running the local database
-- **Poetry**: Recommended for dependency management
+- **UV**: Recommended for dependency management
 
 ---
 
@@ -29,21 +29,28 @@ A **FastAPI** service for calculating and serving moving averages (MMS) of crypt
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/your-repo/mb-challenger.git
+   git clone https://github.com/javiersrf/mb-challenger.git
    cd mb-challenger
    ```
 
-2. **Set Up Environment Variables**:
+2. **Set Up dependencies**:
+   (Install uv dependency manager)[https://docs.astral.sh/uv/getting-started/installation/]
+   or
+   ```bash
+   curl -LsSf https://astral.sh/uv/install.sh | sh
+   ```
+
+3. **Set Up Environment Variables**:
    Create a `.env` file from the sample:
    ```bash
    cp .env.sample .env
    ```
    Update the `.env` file with your configuration.
 
-3. **Install Dependencies**:
+4. **Install Dependencies**:
    Using Poetry:
    ```bash
-   poetry install
+   uv sync
    ```
 
 ---
